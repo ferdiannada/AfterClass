@@ -22,5 +22,10 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+	public function lihat_info(){
+		echo "<h1> Halo My Friend's</h1>";
+		echo "You're now is learning Code Igniter 3<br>";
+		echo "Good luck";
+	}
 
 }
