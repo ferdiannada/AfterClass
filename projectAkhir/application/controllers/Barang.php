@@ -11,6 +11,7 @@ class Barang extends CI_Controller{
 
   function edit(){
     echo "Ini edit Barang";
+
   }
 
 }

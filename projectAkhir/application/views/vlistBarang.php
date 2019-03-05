@@ -5,12 +5,10 @@
     <title>Data Barang</title>
   </head>
   <body>
-    <h1><?= $judul ?> :</h1>
-    <ul>
+      <h1><?php echo $judul; ?></h1>
       <?php foreach ($barang as $b): ?>
-        <li><?php echo "$b"; ?></li>
+        <li><?php echo $b; ?></li>
       <?php endforeach; ?>
-
     </ul>
   </body>
 </html>
