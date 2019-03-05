@@ -9,6 +9,7 @@
       <?php foreach ($barang as $b): ?>
         <li><?php echo $b; ?></li>
       <?php endforeach; ?>
+      <!-- Tampilan Daftar Barang -->
     </ul>
   </body>
 </html>
