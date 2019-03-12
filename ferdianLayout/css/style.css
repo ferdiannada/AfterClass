@@ -1,0 +1,22 @@
+.container{
+  width: 100%;
+}
+.header{
+  width: 100%;
+  background-color: orange;
+  text-align: center;
+  height: 50px;
+}
+.content{
+  align-content: center;
+  width: 70%;
+  background-color: gray;
+  height: 300px;
+  margin-left: 15%;
+}
+.footer{
+  height: 30px;
+  background-color: purple;
+  color: white;
+  text-align: center;
+}
