@@ -6,11 +6,11 @@
   </head>
   <body>
 
-      <h1><?php echo $judul; ?></h1>
+      <h1 style="color: "><?php echo $judul; ?></h1>
     <ul>
       <?php foreach ($barang as $b): ?>
         <li><?php echo $b; ?></li>
-      <?php endforeach; ?> 
+      <?php endforeach; ?>
     </ul>
   </body>
 </html>
