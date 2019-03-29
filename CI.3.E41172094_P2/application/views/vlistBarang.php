@@ -7,9 +7,10 @@
   <body>
 
       <h1><?php echo $judul; ?></h1>
+      <hr>
+      <?php
 
-
-
+       ?>
         <table border="1">
           <tr>
             <th>ID Barang</th>
@@ -17,6 +18,7 @@
             <th>Stok</th>
             <th>Harga</th>
           </tr>
+          <!-- Menampilkan data dari DB -->
           <?php foreach ($barang as $b): ?>
             <tr>
                 <td><?= $b->id_barang; ?></td>
@@ -26,9 +28,6 @@
             </tr>
           <?php endforeach; ?>
         </table>
-
-
-
 
   </body>
 </html>
