@@ -5,7 +5,7 @@
     <title>Input Barang</title>
   </head>
   <body>
-    <?php echo form_open('barang/simpanData'); ?>
+    <?php echo form_open('barang/insertBarang'); ?>
     <table>
       <tr>
         <td><label for="nama_barang">Nama Barang :</label></td>

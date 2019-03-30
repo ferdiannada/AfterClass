@@ -5,7 +5,11 @@ class Admin extends CI_Controller{
 
   function index()
   {
-    $this->load->view('admin/index');
+    $this->load->model('Model_barang');
+    $data['jumlah_barang'] = $this->Model_barang->hitungBarang();
+    $this->load->view('header');
+    $this->load->view('admin/index', $data);
+    $this->load->view('footer');
   }
 
 }
