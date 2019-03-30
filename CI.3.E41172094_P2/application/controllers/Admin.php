@@ -11,5 +11,10 @@ class Admin extends CI_Controller{
     $this->load->view('admin/index', $data);
     $this->load->view('footer');
   }
+  function profil(){
+    $this->load->view('header');
+    $this->load->view('user/v_admin');
+    $this->load->view('footer');
+  }
 
 }

@@ -9,7 +9,7 @@
     -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          E41172094
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -21,7 +21,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="<?= site_url('admin/profil'); ?>">
               <i class="material-icons">person</i>
               <p>User Profile</p>
             </a>

@@ -1,6 +1,7 @@
 
 <body class="">
   <div class="wrapper ">
+    <!-- SideBar -->
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg')?>">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -9,7 +10,7 @@
     -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          E41172094
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -21,7 +22,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="<?= site_url('admin/profil'); ?>">
               <i class="material-icons">person</i>
               <p>User Profile</p>
             </a>
@@ -36,6 +37,7 @@
         </ul>
       </div>
     </div>
+    <!-- End SideBar -->
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
