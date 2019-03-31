@@ -28,7 +28,7 @@
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="<?php echo site_url('barang') ?>">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">table_chart</i>
               <p>Table List</p>
             </a>
           </li>
@@ -66,6 +66,7 @@
     <div class="content">
     <div class="container-fluid">
       <div class="row">
+
         <div class="col-md-4">
           <div class="card card-profile">
             <div class="card-avatar">
@@ -79,10 +80,12 @@
                 <p class="card-description">
                 Untuk perubahan data, silakan hubungi mimin!
                 </p>
-              <a href="#" class="btn btn-primary btn-round">Follow</a>
+
+              <a class="btn btn-primary btn-round" href="#">Edit</a>
             </div>
           </div>
         </div>
+
         <div class="col-md-8">
           <div class="card">
             <div class="card-header card-header-primary">

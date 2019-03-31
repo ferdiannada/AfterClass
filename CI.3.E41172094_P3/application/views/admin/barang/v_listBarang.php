@@ -28,7 +28,7 @@
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="<?php echo site_url('barang')?>">
-              <i class="material-icons">content_paste</i>
+              <i class="material-icons">table_chart</i>
               <p>Table List</p>
             </a>
           </li>
@@ -50,8 +50,17 @@
         <span class="navbar-toggler-icon icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end">
+
         <form class="navbar-form" action="#" method="post">
+
+
             <div class="input-group no-border">
+
+              <a href="<?= site_url('barang/validasiTambah'); ?>" class="btn btn-success btn-round">
+                  <i class="material-icons">add_circle</i> Tambah Data
+                  <div class="ripple-container"></div>
+              </a>
+
             <button type="submit" name="logout" value="ok" class="btn btn-danger btn-round">
                 <i class="material-icons">power_settings_new</i> Logout
                 <div class="ripple-container"></div>
@@ -77,7 +86,6 @@
                       <thead class=" text-warning">
                         <th>ID</th>
                         <th>Nama Barang</th>
-                        <th>Stok</th>
                         <th>Harga</th>
                         <th>Menu</th>
                       </thead>
@@ -86,7 +94,6 @@
                           <tr>
                             <td><?= $b->id_barang; ?></td>
                             <td><?= $b->nama_barang; ?></td>
-                            <td><?= $b->stok; ?></td>
                             <td class="text-danger"><b>Rp<?= number_format($b->harga); ?></b></td>
                             <td class="td-actions">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
@@ -94,6 +101,9 @@
                               </button>
                               <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
                                 <i class="material-icons">close</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="Detil" class="btn btn-warning btn-link btn-sm">
+                                <i class="material-icons">info</i>
                               </button>
                             </td>
                           </tr>
