@@ -5,9 +5,6 @@
 	<!--  Charts Plugin -->
 	<script src="<?php echo base_url ('assets/js/chartist.min.js') ?>"></script>
 
-    <!--  Notifications Plugin    -->
-    <script src="<?php echo base_url ('assets/js/bootstrap-notify.js') ?>"></script>
-
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="<?php echo base_url ('https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE') ?>"></script>
 

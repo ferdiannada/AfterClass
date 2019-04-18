@@ -1,6 +1,6 @@
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="purple" data-image="../../assets/img/sidebar-5.jpg">
       
       <div class="sidebar-wrapper">
             <div class="logo">
@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url ('Barang') ?>">
+                    <a href="<?php echo site_url ('Admin/table') ?>">
                         <i class="pe-7s-note2"></i>
                         <p>Table List</p>
                     </a>

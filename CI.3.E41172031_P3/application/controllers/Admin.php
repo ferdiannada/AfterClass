@@ -15,4 +15,10 @@ class Admin extends CI_Controller{
     $this->load->view('admin/template/footer');
   }
 
+  function table()
+  {
+    $this->load->view('admin/content/table');
+    $this->load->view('admin/template/header');
+    $this->load->view('admin/template/footer');
+  }
 }
