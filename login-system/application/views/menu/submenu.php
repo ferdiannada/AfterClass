@@ -53,7 +53,7 @@
                         <a href="" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
                           <i class="material-icons">edit</i>
                         </a>
-                        <a rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm tombol-hapus">
+                        <a href="<?= base_url(); ?>menu/delSubMenu/<?= $sm['id']; ?>" rel="tooltip" onclick="confirm('sure want to delete this?')" title="Remove" class="btn btn-danger btn-link btn-sm tombol-hapus">
                         <i class="material-icons">close</i>
                       </a>
                       </td>
