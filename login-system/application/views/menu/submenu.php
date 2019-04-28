@@ -114,9 +114,14 @@
               <input type="text" name="controller_active" class="form-control" id="controller_active">
             </div>
 
-            <div class="form-group">
-              <label class="bmd-label-floating" for="active">Active ?</label>
-              <input type="text" name="active" class="form-control" id="active">
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="1" checked>
+                  Active ?
+                  <span class="form-check-sign">
+                      <span class="check"></span>
+                  </span>
+              </label>
             </div>
 
           <!-- End form sub menu -->
