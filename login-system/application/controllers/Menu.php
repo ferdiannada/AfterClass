@@ -51,4 +51,12 @@ class Menu extends CI_Controller{
 
   }
 
+  public function delSubMenu($id)
+  {
+    $this->load->model('M_menu', 'menu');
+    $this->menu->hapusSubMenu($id);
+    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Success delete 1 submenu</div>');
+    redirect('menu/subMenu');
+  }
+
 }
