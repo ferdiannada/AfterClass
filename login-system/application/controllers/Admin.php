@@ -6,12 +6,7 @@ class Admin extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-    if (!$this->session->userdata('email')) {
-      $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-      Please login first</div>');
-      redirect('auth');
-    }
-
+    check_logged_in();
   }
 
   function index()
