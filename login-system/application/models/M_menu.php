@@ -24,6 +24,11 @@ class M_menu extends CI_Model{
     $this->db->insert('user_sub_menu', $data);
   }
 
+  public function hapusSubMenu($id)
+  {
+    $this->db->delete('user_sub_menu', ['id' => $id]);
+  }
+
   public function rulesSubMenu()
   {
     $rule = array(
