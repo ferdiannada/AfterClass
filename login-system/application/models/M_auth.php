@@ -3,19 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_auth extends CI_Model{
 
-  public function __construct()
-  {
-    parent::__construct();
-    $this->load->library('form_validation');
-  }
-
   public function registrasi()
   {
     $data = [
       'name' => htmlspecialchars($this->input->post('name', true)),
       'email' => htmlspecialchars($this->input->post('email', true)),
       'image' => 'default.jpg',
-      'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+      'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT), //perintah hash password
       'role_id' => 2,
       'is_active' => 1,
       'date_create' => time()

@@ -42,13 +42,13 @@ class Menu extends CI_Controller{
     $this->menu->rulesSubMenu(); //memanggil method rules sub menu (model)
     $data['menu'] = $this->db->get('user_menu')->result_array();
 
-    if ($this->form_validation->run() == false) {
+    if ($this->form_validation->run() == false) { //jika form validation tidak berjalan
       $this->load->view('templates/header', $data);
       $this->load->view('templates/sidebar', $data);
       $this->load->view('templates/topbar', $data);
       $this->load->view('menu/submenu', $data);
       $this->load->view('templates/footer');
-    }else {
+    }else { //jika form validation sukses
       $this->menu->saveSubMenu();
       $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Success add new submenu</div>');
       redirect('menu/subMenu');

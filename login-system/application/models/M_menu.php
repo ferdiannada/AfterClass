@@ -5,13 +5,14 @@ class M_menu extends CI_Model{
 
   public function getSubMenu()
   {
+    // melakukan join tabel user_sub_menu dan user_menu, untuk mendapatkan nama menu dari tabel menu
     $query = "SELECT user_sub_menu.* , user_menu.menu
               FROM user_sub_menu JOIN user_menu ON user_sub_menu.menu_id = user_menu.id
               ";
     return $this->db->query($query)->result_array();
   }
 
-  public function saveSubMenu()
+  public function saveSubMenu() //method input sub menu
   {
     $data = [
               'title'             => htmlspecialchars($this->input->post('title', true)),
@@ -24,12 +25,12 @@ class M_menu extends CI_Model{
     $this->db->insert('user_sub_menu', $data);
   }
 
-  public function hapusSubMenu($id)
+  public function hapusSubMenu($id) //method hapus submenu berdasarkan id yang di pilih
   {
     $this->db->delete('user_sub_menu', ['id' => $id]);
   }
 
-  public function rulesSubMenu()
+  public function rulesSubMenu() // membuat rule untuk input submenu baru dalam array
   {
     $rule = array(
               array(

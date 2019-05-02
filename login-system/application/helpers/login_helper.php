@@ -8,11 +8,13 @@ function check_logged_in()
     Please login first</div>');
     redirect('auth');
   }else {
+    // mengambil role_id dan uri segment pertama/nama controller
     $role_id = $ci->session->userdata('role_id');
     $menu = $ci->uri->segment(1);
 
+    // menyamakan uri segment 1 dengan menu dari db
     $queryMenu = $ci->db->get_where('user_menu', ['menu' => $menu])->row_array();
-    $menu_id = $queryMenu['id'];
+    $menu_id = $queryMenu['id']; // mengambil id dari hasil query $queryMenu
 
     $userAccess = $ci->db->get_where('user_access_menu', [
       'role_id' => $role_id,

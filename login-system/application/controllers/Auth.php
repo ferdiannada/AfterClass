@@ -59,13 +59,13 @@ class Auth extends CI_Controller{
           Wrong password</div>');
           redirect('auth');
         }
-      }else{ // kalau tidak aktif
+      }else{ // jika user tidak aktif
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
         This email has not been activated</div>');
         redirect('auth');
       }
     }else {
-      // jika tidak ada user
+      // jika tidak ada user / belum di daftarkan
       $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
       This email is not registered</div>');
       redirect('auth');
