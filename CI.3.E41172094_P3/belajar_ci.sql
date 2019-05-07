@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 30 Mar 2019 pada 05.09
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.3.1
+-- Waktu pembuatan: 07 Bulan Mei 2019 pada 08.38
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,21 +31,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `barang` (
   `id_barang` int(11) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
-  `stok` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
+  `harga_barang` int(11) NOT NULL,
+  `gambar_barang` varchar(255) NOT NULL,
+  `deskripsi_barang` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `nama_barang`, `stok`, `harga`) VALUES
-(1, 'CHOCOLATOS', 10, 20000),
-(2, 'REECHESE NABATI', 50, 1000),
-(5, 'GOOD DAY AVOCADO', 15, 8900),
-(6, 'KAPAL API', 10, 5000),
-(15, 'Beng Beng', 20, 2000),
-(16, 'Espresso', 10, 6000);
+INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga_barang`, `gambar_barang`, `deskripsi_barang`) VALUES
+(4, 'Kaos Google Developer', 90000, 'default.jpg', 'Kaos cbe'),
+(7, 'Novel Bloody Motel', 50000, 'default.jpg', 'Novel ini bercerita tentang crew tim film yang terjebak di sebuah motel tua, ketika sedang hujan lebat'),
+(8, 'Programming PHP &amp; MySQLi', 60000, 'default.jpg', 'Belajar PHP 7 MySQLi dari dasar'),
+(9, 'Sepatu Olahraga', 300000, 'default.jpg', 'Sepatu khusus untuk gitaris');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +64,7 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
