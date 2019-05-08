@@ -3,25 +3,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 
-	public function index()
-	{
-		$this->header();
-		$this->load->view('admin/dashboard');
-		$this->footer();		
-	}
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->library('form_validation');
+    }
 
-	public function header()
-	{
-		$this->load->view('admin/header');
-	}
+    public function index()
+    {
+        $this->load->helper('url');
 
-	
-	public function footer()
-	{
-		$this->load->view('admin/footer');
-	}
+        $data['nama'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $this->header();
+        $this->load->view('admin/dashboard', $data);
+        $this->footer();
+    }
 
+    function header()
+    {   
+        $data['title'] = 'Dashboard';
+    	$this->load->view('admin/header', $data);
+    }
+
+    function footer()
+    {
+    	$this->load->view('admin/footer');
+    }
 }
 
-/* End of file Dashboard.php */
-/* Location: ./application/controllers/admin/Dashboard.php */

@@ -1,52 +1,32 @@
-  <div class="container">
-    <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account</div>
-      <div class="card-body">
-        <form>
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
-                  <label for="firstName">First name</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
-                  <label for="lastName">Last name</label>
-                </div>
-              </div>
+  <body>
+
+    <div class="signin-wrapper">
+
+      <div class="signin-box">
+
+        <h2 class="slim-logo"><a href="index.html">.<span>WebFramework</span></a></h2>
+        <h2 class="signin-title-primary">Auth</h2>
+        <h3 class="signin-title-secondary">Admin - Register</h3>
+        
+        <form class="user" method="post" action="<?= base_url('admin/auth/register'); ?>">    
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= set_value('username') ?>">
+                <?= form_error('username','<div class="bg-info text-dark"><small>','</small></div>'); ?>
+            </div><!-- form-group -->
+
+            <div class="form-group mg-b">
+                <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
+                <?= form_error('password1',' <div class="bg-info text-dark"><small>','</small></div>'); ?>
             </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
-              <label for="inputEmail">Email address</label>
+
+            <div class="form-group mg-b-30">
+                <input type="password" class="form-control" id="password2" name="password2" placeholder="Repeat Password">
             </div>
-          </div>
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-                  <label for="inputPassword">Password</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
-                  <label for="confirmPassword">Confirm password</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
+
+            <button type="submit" class="btn btn-primary btn-block btn-signin">Register</button>
         </form>
-        <div class="text-center">
-          <a class="d-block small mt-3" href="login.html">Login Page</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
-        </div>
-      </div>
-    </div>
-  </div>
+
+        <p class="mg-t-40 mg-b-0">Already have an account? <a href="<?= site_url('admin/auth')?>">Sign In</a></p>
+      </div><!-- signin-box -->
+
+    </div><!-- signin-wrapper -->

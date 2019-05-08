@@ -1,34 +1,28 @@
-  <div class="container">
-    <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login</div>
-      <div class="card-body">
-        <form>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-              <label for="inputEmail">Email address</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-              <label for="inputPassword">Password</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="remember-me">
-                Remember Password
-              </label>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+  <body>
+
+    <div class="signin-wrapper">
+
+      <div class="signin-box">
+        <h2 class="slim-logo"><a href="index.html">.<span>WebFramework</span></a></h2>
+        <h2 class="signin-title-primary">Login</h2>
+        <h3 class="signin-title-secondary">Admin</h3>
+        
+        <?= $this->session->flashdata('message');?>
+
+        <form class="user" method="post" action="<?= base_url('admin/auth')?>">
+            <div class="form-group">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= set_value('username') ?>">
+              <?= form_error('username','<div class="bg-info text-dark"><small>','</small></div>'); ?>
+            </div><!-- form-group -->
+            <div class="form-group mg-b-30">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+              <?= form_error('password',' <div class="bg-info text-dark"><small>','</small></div>'); ?>
+            </div><!-- form-group -->
+            <button class="btn btn-primary btn-block btn-signin" type="submit">Login</button>
         </form>
-        <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">Register an Account</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
-        </div>
-      </div>
-    </div>
-  </div>
+
+        <p class="mg-t-40 mg-b-0">Don't have an account? <a href="<?= site_url('admin/auth/register')?>">Sign Up</a></p>
+
+      </div><!-- signin-box -->
+
+    </div><!-- signin-wrapper -->

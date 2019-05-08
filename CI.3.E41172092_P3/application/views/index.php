@@ -1,1 +1,0 @@
-Ini adalah index utama, dan yang belajar adalah <?php echo $nama; ?>
