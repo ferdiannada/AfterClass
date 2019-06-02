@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Contact extends CI_Controller {
-	
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -11,9 +11,11 @@ class Contact extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('contact');
-		$this->load->view('footer');	
+		$data['title'] = 'Contact Us';
+		$this->load->view('user/_partials/header', $data);
+		$this->load->view('user/_partials/navigation');
+		$this->load->view('user/contact');
+		$this->load->view('user/_partials/footer');
 	}
 
 }
