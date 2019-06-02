@@ -85,16 +85,6 @@
                         </div>
                         <!-- end of navigation section -->
                     </div>
-                    <div class="col-12 col-lg-3">
-                        <!--=======  navigation search bar  =======-->
-                        
-                        <div class="navigation-search d-none d-lg-block">
-                            <input type="search" placeholder="Search product ...">
-                            <button><i class="icon ion-md-search"></i></button>
-                        </div>
-                        
-                        <!--=======  End of navigation search bar  =======-->
-                    </div>
                     <div class="col-12 d-block d-lg-none">
                         <!-- Mobile Menu -->
                         <div class="mobile-menu"></div>
@@ -288,7 +278,16 @@
                                 
                                 <!--=======  End of Sort by dropdown  =======-->
 
-                                <p class="result-show-message">Showing 1–12 of 41 results</p>
+                                <div class="col-12 col-lg-6">
+                                    <!--=======  navigation search bar  =======-->
+                        
+                                    <div class="navigation-search d-none d-lg-block">
+                                        <input type="search" placeholder="Search product ...">
+                                        <button><i class="icon ion-md-search"></i></button>
+                                    </div>
+                                    
+                                    <!--=======  End of navigation search bar  =======-->
+                                </div>
                             </div>
                         </div>
                     </div>
