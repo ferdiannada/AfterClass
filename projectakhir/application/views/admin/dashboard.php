@@ -142,7 +142,7 @@
 
 			<li><a href="<?= base_url(); ?>administrator/produk" ><span class="title">Produk</span></a></li>
 
-			<li><a href="../tables/responsive.html" ><span class="title">Jenis Barang</span></a></li>
+			<li><a href="<?= base_url(); ?>administrator/jenis" ><span class="title">Jenis Barang</span></a></li>
 
 		</ul><!--end /submenu -->
 	</li><!--end /menu-li -->
