@@ -151,7 +151,7 @@
 				<div class="about-content col-lg-6">
 					<div class="row">
 						<div class="col-12 mb-50">
-							<h1>WELCOME TO <span>FURNILIFE.</span></h1>
+							<h1>WELCOME TO <span>SIRANTANG</span></h1>
 							<p>FURNILIFE provide how all this mistaken idea of denouncing pleasure and sing pain was born an will give you a complete account of the system, and expound the actual teachings of the eat explorer of the truth, the mer of human.</p>
 						</div>
 

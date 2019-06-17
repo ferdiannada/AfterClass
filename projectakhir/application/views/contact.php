@@ -159,12 +159,12 @@
 					
 					<div class="contact-page-side-content">
 						<h3 class="contact-page-title">Contact Us</h3>
-                        <p class="contact-page-message mb-30">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas human.</p>
+                        <p class="contact-page-message mb-30">SIRANTANG merupakan toko online yang menjual aneka kerajinan yang terbuat dari bambu seperti kursi, tirai, gazebo, lampion, lampu, souvenir pernikahan dan lain-lain yang terbuat dari bambu. Pembeli juga dapat merequest barang sesuai dengan permintaan pembeli.SIRANTANG merupakan toko online yang menjual aneka kerajinan yang terbuat dari bambu seperti kursi, tirai, gazebo, lampion, lampu, souvenir pernikahan dan lain-lain yang terbuat dari bambu. Pembeli juga dapat merequest barang sesuai dengan permintaan pembeli.</p>
 						<!--=======  single contact block  =======-->
 						
 						<div class="single-contact-block">
 							<h4><i class="fa fa-fax"></i> Address</h4>
-							<p>123 Main Street, Anytown, CA 12345 – USA</p>
+							<p>Jl. Sukowono RT.09/RW02 Sukosari Taman Bondowoso</p>
 						</div>
 						
 						<!--=======  End of single contact block  =======-->
@@ -173,7 +173,7 @@
 						
 						<div class="single-contact-block">
 							<h4><i class="fa fa-phone"></i> Phone</h4>
-							<p>Mobile: (08) 123 456 789</p>
+							<p>----------</p>
 							<p>Hotline: 1009 678 456</p>
 						</div>
 						
@@ -183,7 +183,7 @@
 						
 						<div class="single-contact-block">
 							<h4><i class="fa fa-envelope-o"></i> Email</h4>
-							<p>yourmail@domain.com</p>
+							<p>aaaaaaaaaa@domain.com</p>
 							<p>support@hastech.company</p>
 						</div>
 						
