@@ -1,13 +1,13 @@
 		<!--=============================================
 		=            navigation menu         =
 		=============================================-->
-		
+
 		<div class="navigation-menu">
 			<div class="container">
 				<div class="row align-items-center justify-content-between">
 					<div class="col-12 col-lg-3 col-md-12 col-sm-12">
 						<!--=======  category menu  =======-->
-						
+
 						<div class="hero-side-category">
 							<!-- Category Toggle Wrap -->
 							<div class="category-toggle-wrap">
@@ -47,27 +47,27 @@
 								</ul>
 							</nav>
 						</div>
-						
+
 						<!--=======  End of category menu =======-->
 
 						<!--=======  sticky logo  =======-->
-						
+
 						<div class="sticky-logo">
 							<a href="index.html">
 								<img src="assets/images/logo.png" class="img-fluid" alt="">
 							</a>
 						</div>
-						
+
 						<!--=======  End of sticky logo  =======-->
 
 						<!--=======  search icon for tablet  =======-->
-                                
+
 						<div class="search-icon-menutop-tablet text-right d-inline-block d-lg-none">
 							<a href="#" id="search-overlay-active-button">
 								<i class="icon ion-md-search"></i>
 							</a>
 						</div>
-						
+
 						<!--=======  End of search icon for tablet  =======-->
 					</div>
 					<div class="col-12 col-lg-6">
@@ -87,12 +87,12 @@
 					</div>
 					<div class="col-12 col-lg-3">
 						<!--=======  navigation search bar  =======-->
-						
+
 						<div class="navigation-search d-none d-lg-block">
 							<input type="search" placeholder="Search product ...">
 							<button><i class="icon ion-md-search"></i></button>
 						</div>
-						
+
 						<!--=======  End of navigation search bar  =======-->
 					</div>
 					<div class="col-12 d-block d-lg-none">
@@ -102,31 +102,31 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!--=====  End of navigation menu  ======-->
-			
+
 	</div>
-	
+
 	<!--=====  End of header container  ======-->
 
 	<!--=============================================
 	=            hero slider         =
 	=============================================-->
-	
+
 	<div class="hero-area mb-30">
 		<!--=======  slider container  =======-->
-			
+
 		<div class="slider-container">
 			<!--=======  hero slider one  =======-->
-				
+
 			<div class="hero-slider">
 				<!--=======  slider item  =======-->
-					
+
 				<div class="hero-slider-item slider-bg-1">
-					
+
 
 					<!--=======  slider content  =======-->
-						
+
 					<div class="d-flex flex-column justify-content-center align-items-start h-100">
 						<div class="container">
 							<div class="row">
@@ -141,17 +141,17 @@
 							</div>
 						</div>
 					</div>
-						
+
 					<!--=======  End of slider content  =======-->
 				</div>
-					
+
 				<!--=======  End of slider item  =======-->
 
 				<!--=======  slider item  =======-->
-				
+
 				<div class="hero-slider-item slider-bg-2">
 					<!--=======  slider content  =======-->
-					
+
 					<div class="d-flex flex-column justify-content-center align-items-start h-100">
 						<div class="container">
 							<div class="row">
@@ -166,17 +166,17 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<!--=======  End of slider content  =======-->
 				</div>
-				
+
 				<!--=======  End of slider item  =======-->
 
 				<!--=======  slider item  =======-->
-				
+
 				<div class="hero-slider-item slider-bg-3">
 					<!--=======  slider content  =======-->
-					
+
 					<div class="d-flex flex-column justify-content-center align-items-start h-100">
 						<div class="container">
 							<div class="row">
@@ -191,32 +191,32 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<!--=======  End of slider content  =======-->
 				</div>
-				
+
 				<!--=======  End of slider item  =======-->
 
 			</div>
-			
+
 			<!--=======  End of hero slider one  =======-->
 		</div>
-		
+
 		<!--=======  End of slider container  =======-->
 	</div>
-	
+
 	<!--=====  End of hero slider  ======-->
 
 	<!--=============================================
 	=            tab slider section         =
 	=============================================-->
-	
+
 	<div class="tab-product-slider-container mb-50">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<!--=======  tab slider wraspper  =======-->
-					
+
 					<div class="tab-slider-wrapper">
 						<nav>
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -227,10 +227,10 @@
 						<div class="tab-content" id="nav-tabContent">
 							<div class="tab-pane fade show active" id="new-arrivals" role="tabpanel" aria-labelledby="new-arrival-tab">
 								<!--=======  tab product slider  =======-->
-								
+
 								<div class="fl-slider tab-product-slider" data-row="2">
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image sale-product">
 											<a href="single-product.html">
@@ -255,7 +255,7 @@
 												<span class="main-price discounted">$71</span>
 												<span class="discounted-price">$65</span>
 											</p>
-	
+
 											<div class="hover-icons">
 												<ul>
 													<li><a href="#"  data-tooltip="Add to Cart"><i class="icon ion-md-cart"></i></a></li>
@@ -265,11 +265,11 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image sale-product">
 											<a href="single-product.html">
@@ -304,10 +304,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -342,10 +342,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -380,10 +380,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -418,10 +418,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -456,10 +456,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -494,10 +494,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -532,10 +532,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -570,10 +570,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -608,10 +608,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -646,10 +646,10 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 									<!--=======  single product  =======-->
-									
+
 									<div class="fl-product">
 										<div class="image">
 											<a href="single-product.html">
@@ -684,44 +684,44 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<!--=======  End of single product  =======-->
 								</div>
-								
+
 								<!--=======  End of tab product slider  =======-->
 							</div>
 						</div>
 					</div>
-					
+
 					<!--=======  End of tab slider wraspper  =======-->
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<!--=====  End of tab slider section  ======-->
 
 	<!--=============================================
 	=            blog post slider         =
 	=============================================-->
-	
+
 	<div class="blog-post-slider-area mb-50">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<!--=======  section title  =======-->
-					
+
 					<div class="section-title">
 						<h2>LATEST BLOGS</h2>
 					</div>
-					
+
 					<!--=======  End of section title  =======-->
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
 					<!--=======  blog post slider container  =======-->
-					 
+
 					<div class="fl-slider blog-post-slider-container">
 						<!--=======  single-blog-post  =======-->
 						<div class="col">
@@ -745,7 +745,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<!--=======  End of single-blog-post  =======-->
 						<!--=======  single-blog-post  =======-->
 						<div class="col">
@@ -769,7 +769,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<!--=======  End of single-blog-post  =======-->
 						<!--=======  single-blog-post  =======-->
 						<div class="col">
@@ -793,7 +793,7 @@
 							</div>
 						</div>
 						</div>
-						
+
 						<!--=======  End of single-blog-post  =======-->
 						<!--=======  single-blog-post  =======-->
 						<div class="col">
@@ -840,7 +840,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<!--=======  End of single-blog-post  =======-->
 						<!--=======  single-blog-post  =======-->
 						<div class="col">
@@ -864,17 +864,17 @@
 							</div>
 							</div>
 						</div>
-						
+
 						<!--=======  End of single-blog-post  =======-->
-						
+
 					</div>
-					
+
 					<!--=======  End of blog post slider container  =======-->
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<!--=====  End of blog post slider  ======-->
 
 	<!--=============================================
