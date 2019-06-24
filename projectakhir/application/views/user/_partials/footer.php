@@ -115,6 +115,7 @@
 
 	<!-- Main JS -->
 	<script src="<?= base_url(); ?>assets/js/main.js"></script>
+	<script src="<?= base_url(); ?>assets/js/myjavascript.js"></script>
 
 	<!-- AJAX mail JS -->
 	<script src="<?= base_url(); ?>assets/js/ajax-mail.js"></script>
@@ -124,6 +125,15 @@
     
     <!-- Google Map -->
 	<script src="<?= site_url(); ?>https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.22&amp;key=AIzaSyChs2QWiAhnzz0a4OEhzqCXwx_qA9ST_lE"></script>
+	<script>
+		$('#seemore').on('click', function(){
+			if ($(this).text() == 'See more...') {
+				$(this).text('See less...');
+			}else{
+				$(this).text('See more...');
+			}
+		})
+	</script>
 
 </body>
 
