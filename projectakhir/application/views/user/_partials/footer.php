@@ -92,7 +92,7 @@
 			<button><i class="icon ion-md-search"></i></button>
 		</div>
 	</div>
-		
+	
 	<!--=====  End of search overlay  ======-->
 
 	<!-- scroll to top  -->
@@ -100,33 +100,58 @@
 	<!-- end of scroll to top -->
 
 	<!-- JS
-	============================================ -->
-	<!-- jQuery JS -->
-	<script src="<?= base_url(); ?>assets/js/vendor/jquery.min.js"></script>
+		============================================ -->
+		<!-- jQuery JS -->
+		<script src="<?= base_url(); ?>assets/js/vendor/jquery.min.js"></script>
 
-	<!-- Popper JS -->
-	<script src="<?= base_url(); ?>assets/js/popper.min.js"></script>
+		<!-- Popper JS -->
+		<script src="<?= base_url(); ?>assets/js/popper.min.js"></script>
 
-	<!-- Bootstrap JS -->
-	<script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
 
-	<!-- Plugins JS -->
-	<script src="<?= base_url(); ?>assets/js/plugins.js"></script>
+		<!-- Plugins JS -->
+		<script src="<?= base_url(); ?>assets/js/plugins.js"></script>
 
-	<!-- Main JS -->
-	<script src="<?= base_url(); ?>assets/js/main.js"></script>
+		<!-- Main JS -->
+		<script src="<?= base_url(); ?>assets/js/main.js"></script>
 
-	<!-- AJAX mail JS -->
-	<script src="<?= base_url(); ?>assets/js/ajax-mail.js"></script>
+		<!-- JS Pribadi -->
+		<script src="<?= base_url(); ?>assets/js/myjavascript.js"></script>
 
-	<!-- AJAX mail JS -->
-	<script src="<?= base_url(); ?>assets/js/myjavascript.js"></script>
-    
-    <!-- Google Map -->
-	<script src="<?= site_url(); ?>https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.22&amp;key=AIzaSyChs2QWiAhnzz0a4OEhzqCXwx_qA9ST_lE"></script>
+		<!-- AJAX mail JS -->
+		<script src="<?= base_url(); ?>assets/js/ajax-mail.js"></script>
 
-</body>
+		<!-- AJAX mail JS -->
+		<script src="<?= base_url(); ?>assets/js/myjavascript.js"></script>
+
+		<<script>
+			$('#seemore').on('click', function(){
+				if ($(this).text() == 'See more...') {
+					$(this).text('See less...');
+				}else{
+					$(this).text('See more...');
+				}
+			});
+		</script>
+		
+		<!-- Google Map -->
+		<script src="<?= site_url(); ?>https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.22&amp;key=AIzaSyChs2QWiAhnzz0a4OEhzqCXwx_qA9ST_lE"></script>
+
+		<!-- Account Register -->
+<!-- 		<script>
+	$('#seemore').on('click', function(){
+		if ($(this).text() == 'See more...') {
+			$(this).text('See less...');
+		}else{
+			$(this).text('See more...');
+		}
+	})
+</script>
+ -->
+
+	</body>
 
 
-<!-- Mirrored from demo.hasthemes.com/furnilife/furnilife/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 18 Apr 2019 06:31:04 GMT -->
-</html>
+	<!-- Mirrored from demo.hasthemes.com/furnilife/furnilife/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 18 Apr 2019 06:31:04 GMT -->
+	</html>

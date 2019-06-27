@@ -14,31 +14,31 @@
 	<link rel="icon" href="assets/images/favicon.ico">
 
 	<!-- CSS
-	============================================ -->
-	<!-- Bootstrap CSS -->
-	<link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+		============================================ -->
+		<!-- Bootstrap CSS -->
+		<link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- FontAwesome CSS -->
-	<link href="<?= base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet">
+		<!-- FontAwesome CSS -->
+		<link href="<?= base_url(); ?>assets/css/font-awesome.min.css" rel="stylesheet">
 
-	<!-- Ionicons CSS -->
-	<link href="<?= base_url(); ?>assets/css/ionicons.min.css" rel="stylesheet">
+		<!-- Ionicons CSS -->
+		<link href="<?= base_url(); ?>assets/css/ionicons.min.css" rel="stylesheet">
 
-	<!-- Plugins CSS -->
-	<link href="<?= base_url(); ?>assets/css/plugins.css" rel="stylesheet">
+		<!-- Plugins CSS -->
+		<link href="<?= base_url(); ?>assets/css/plugins.css" rel="stylesheet">
 
-	<!-- Helper CSS -->
-	<link href="<?= base_url(); ?>assets/css/helper.css" rel="stylesheet">
+		<!-- Helper CSS -->
+		<link href="<?= base_url(); ?>assets/css/helper.css" rel="stylesheet">
 
-	<!-- Main CSS -->
-	<link href="<?= base_url(); ?>assets/css/main.css" rel="stylesheet">
+		<!-- Main CSS -->
+		<link href="<?= base_url(); ?>assets/css/main.css" rel="stylesheet">
 
-	<!-- Modernizer JS -->
-	<script src="<?= base_url(); ?>assets/js/vendor/modernizr-2.8.3.min.js"></script>
+		<!-- Modernizer JS -->
+		<script src="<?= base_url(); ?>assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
-</head>
+	</head>
 
-<body>
+	<body>
 
 
 
@@ -57,7 +57,7 @@
 				<div class="row">
 					<div class="col-12 col-lg-6">
 						<div class="header-top-text text-center text-lg-left mb-0 mb-md-15 mb-sm-15">
-								<p><i class="icon ion-md-alarm"></i> Ordered before 17:30, shipped today - <span class="support-no">Support: (012) 800 456 789</span></p>
+							<p><i class="icon ion-md-alarm"></i> Ordered before 17:30, shipped today - <span class="support-no">Support: (012) 800 456 789</span></p>
 						</div>
 					</div>
 					<div class="col-12 col-lg-6">
@@ -69,25 +69,34 @@
 
 
 							<div class="single-dropdown">
-								<a href="#" id="changeAccount"><span id="accountMenuName">My Account <i class="fa fa-angle-down"></i></span></a>
-								<div class="language-currency-list hidden" id="accountList">
-									<ul>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="my-account.html">My Account</a></li>
-										<li><a href="login-register.html">Login</a></li>
-									</ul>
+								<a href="#" id="changeAccount"><span id="accountMenuName">
+									<?php 
+
+									if ($this->session->userdata('email')) {
+										echo "<span style='font-size: 13px; margin-right: 8px;'>$customers[name]</span>" ;
+										echo "<i class='fa fa-angle-down'></i></span></a>";
+										echo "<div class='language-currency-list hidden' id='accountList'>";
+										echo "<ul>";
+										echo "<li><a href='cart'>Cart</a></li>";
+										echo "<li><a href='my-account.html'>My Account</a></li>";
+										echo "<li><a href='account/logout'>Logout</a></li>";
+										echo "</ul>";
+										echo "</div>";
+									}else{
+										echo "<a href='account' >Login/Register</a>";
+									}
+
+									?>
 								</div>
+								<!--=======  End of single dropdown  =======-->
 							</div>
-							<!--=======  End of single dropdown  =======-->
+							<!--=======  End of header top dropdowns  =======-->
 						</div>
-						<!--=======  End of header top dropdowns  =======-->
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<!--=====  End of header top  ======-->
+			<!--=====  End of header top  ======-->
 
 		<!--=============================================
 		=            navigation menu top            =
@@ -101,8 +110,8 @@
 						<!--=======  logo  =======-->
 
 						<div class="logo">
-							<a href="index.html">
-								<img src="assets/images/logo.png" class="img-fluid" alt="">
+							<a href="#">
+								<img src="<?= base_url(); ?>assets/images/logo.png" class="img-fluid" alt="">
 							</a>
 						</div>
 
@@ -114,47 +123,52 @@
 						<div class="minicart-section">
 							<a href="#" id="cart-icon">
 								<span class="image"><i class="icon ion-md-cart"></i></span>
-								<h5>$215.00 <i class="fa fa-angle-down"></i></h5>
-								<p>3 items</p>
 							</a>
 
+							
 							<!-- cart floating box -->
 							<div class="cart-floating-box hidden" id="cart-floating-box">
-								<div class="cart-items">
-									<div class="cart-float-single-item d-flex">
-										<span class="remove-item" id="remove-item"><a href="#"><i class="icon ion-md-close"></i></a></span>
-										<div class="cart-float-single-item-image">
-											<a href="single-product.html"><img src="assets/images/products/product01.jpg" class="img-fluid" alt=""></a>
-										</div>
-										<div class="cart-float-single-item-desc">
-											<p class="product-title"> <a href="single-product.html">Duis pulvinar obortis eleifend </a></p>
-											<p class="quantity"> Qty: 1</p>
-											<p class="price">$20.50</p>
-										</div>
-									</div>
-									<div class="cart-float-single-item d-flex">
-										<span class="remove-item"><a href="#"><i class="icon ion-md-close"></i></a></span>
-										<div class="cart-float-single-item-image">
-											<a href="single-product.html"><img src="assets/images/products/product02.jpg" class="img-fluid" alt=""></a>
-										</div>
-										<div class="cart-float-single-item-desc">
-											<p class="product-title"> <a href="single-product.html">Fusce ultricies dolor vitae</a></p>
-											<p class="quantity"> Qty: 1</p>
-											<p class="price">$20.50</p>
-										</div>
-									</div>
+								<div class="cart-items"><?php
+    							if ($cart = $this->cart->contents())
+    							{
+    								?>	
+									<?php
+										// Create form and send all values in "shopping/update_cart" function.
+    									$grand_total = 0;
+    									$i = 1;
+
+    									foreach ($cart as $item):
+    										$grand_total = $grand_total + $item['subtotal'];
+    										?>
+										<div class="cart-float-single-item d-flex">
+											<div class="cart-float-single-item-image">
+												<a><img src="<?= base_url() . 'upload/product/'.$item['gambar']; ?>" class="img-fluid" alt="Product"></a>
+											</div>
+											<div class="cart-float-single-item-desc">
+												<p class="product-title"><h5><?php echo $item['name']; ?></h5></p>
+												<p class="quantity"><h5><?php echo $item['qty']; ?></h5></p>
+												<p class="price">Rp. <?php echo number_format($item['price']); ?></p>
+											</div>
+											</div>
+											<?php endforeach; ?>
 								</div>
 								<div class="cart-calculation">
 									<div class="calculation-details">
-										<p class="total">Subtotal <span>$22</span></p>
+										<p class="total">Subtotal <span>Rp. <?php echo number_format($grand_total); ?></span></p>
 									</div>
 									<div class="floating-cart-btn text-center">
-										<a class="fl-btn pull-left" href="cart.html">View Cart</a>
-										<a class="fl-btn pull-right" href="checkout.html">Checkout</a>
-									</div>
+										<a class="fl-btn pull-right" href="<?= base_url();?>cart">View Cart</a>
+									</div><?php
+    						}
+    						else
+    						{
+    							echo "<h5>Your cart is empty</h3>";	
+    						}	
+    						?>
 								</div>
 							</div>
 							<!-- end of cart floating box -->
+
 						</div>
 
 						<!--=======  End of cart icon  =======-->

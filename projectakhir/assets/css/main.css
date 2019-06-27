@@ -173,7 +173,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   display: none; }
 
 .show {
-  display: block; }
+  display: flex; }
 
 /*----------  container fix  ----------*/
 @media (min-width: 1200px) {

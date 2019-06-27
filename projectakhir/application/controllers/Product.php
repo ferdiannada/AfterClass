@@ -3,22 +3,49 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Product extends CI_Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('cart');
+		$this->load->model('M_barang');
+	}
 
-        $this->load->helper('url');
-        $this->load->model('M_barang', 'barang');
-        $this->load->helper('form');
-    }
+	public function index()
+	{	
+		$data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
+		$data['barang'] = $this->M_barang->getAllBarang();
+		$data['jenis'] = $this->db->get('jenis')->result_array();
+		$data['title'] = 'Product';
+		$this->load->view('user/_partials/header', $data);
+		$this->load->view('user/_partials/navigation');
+		$this->load->view('user/product', $data);
+		$this->load->view('user/_partials/footer');
+	}
 
-    public function index()
-    {
-        $this->load->view('header');
-        $data['barang']=$this->barang->getAllBarang()->result_array();
-        $this->load->view('product', $data);
-        $this->load->view('footer');
-    }
+	public function product_view()
+	{
+		$id=($this->uri->segment(3))?$this->uri->segment(3):0;
+		$data['detail'] = $this->db->get_where('barang', ['id' => $id])->row_array();
+		$data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
+		$data['barang'] = $this->M_barang->getAllBarang();
+		$data['title'] = 'Product View';
+		$this->load->view('user/_partials/header', $data);
+		$this->load->view('user/_partials/navigation');
+		$this->load->view('user/product_view', $data);
+		$this->load->view('user/_partials/footer');
+	}
+
+	public function jenis($jenis)
+	{
+		$data['barang'] = $this->M_barang->select_jenis($jenis);
+		$data['jenis'] = $this->db->get('jenis')->result_array();
+		$data['title'] = 'Product';
+		$this->load->view('user/_partials/header', $data);
+		$this->load->view('user/_partials/navigation');
+		$this->load->view('user/product', $data);
+		$this->load->view('user/_partials/footer');
+	}
+
 }
 
 /* End of file Product.php */

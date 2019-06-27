@@ -1,196 +1,60 @@
-        // When the window has finished loading create our google map below
-        google.maps.event.addDomListener(window, 'load', init);
+//tombol-delete
+$('.tombol-hapus').on('click', function(e) {
+  e.preventDefault()
+  const href  = $(this).attr('href');
 
-        function init() {
-            // Basic options for a simple Google Map
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-            var mapOptions = {
-                // How zoomed in you want the map to start at (always required)
-                zoom: 12,
+  Swal.fire({
+    title: 'Apakah kamu yakin?',
+    text: "Kamu tidak akan bisa mengembalikannya!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Hapus produk!'
+    }).then((result) => {
+      if (result.value) {
+        document.location.href = href;
+      }
+    })
+});
 
-                scrollwheel: false,
+$('#seemore').on('click', function(){
+				if ($(this).text() == 'See more...') {
+					$(this).text('See less...');
+				}else{
+					$(this).text('See more...');
+				}
+			});
 
-                // The latitude and longitude to center the map (always required)
-                center: new google.maps.LatLng(40.740610, -73.935242), // New York
 
-                // How you would like to style the map. 
-                // This is where you would paste any style found on
+$('.add_cart').click(function(){
+	var gambar = $(this).data("gambar");
+	var id = $(this).data("id");
+	var nama_barang  = $(this).data("nama_barang");
+	var harga = $(this).data("harga");
+	var quantity     = $('#' + id).val();
+	$.ajax({
+		url : "<?php echo base_url();?>cart/add_to_cart",
+		method : "POST",
+		data : {gambar: gambar, id: id, nama_barang: nama_barang, harga: harga, quantity: quantity},
+		success: function(data){
+			$('#detail_cart').html(data);
+		}
+	});
+});
 
-                styles: [{
-                        "featureType": "water",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#e9e9e9"
-                            },
-                            {
-                                "lightness": 17
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "landscape",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#f5f5f5"
-                            },
-                            {
-                                "lightness": 20
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                                "color": "#ffffff"
-                            },
-                            {
-                                "lightness": 17
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "geometry.stroke",
-                        "stylers": [{
-                                "color": "#ffffff"
-                            },
-                            {
-                                "lightness": 29
-                            },
-                            {
-                                "weight": 0.2
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.arterial",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#ffffff"
-                            },
-                            {
-                                "lightness": 18
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.local",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#ffffff"
-                            },
-                            {
-                                "lightness": 16
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#f5f5f5"
-                            },
-                            {
-                                "lightness": 21
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi.park",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#dedede"
-                            },
-                            {
-                                "lightness": 21
-                            }
-                        ]
-                    },
-                    {
-                        "elementType": "labels.text.stroke",
-                        "stylers": [{
-                                "visibility": "on"
-                            },
-                            {
-                                "color": "#ffffff"
-                            },
-                            {
-                                "lightness": 16
-                            }
-                        ]
-                    },
-                    {
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                                "saturation": 36
-                            },
-                            {
-                                "color": "#333333"
-                            },
-                            {
-                                "lightness": 40
-                            }
-                        ]
-                    },
-                    {
-                        "elementType": "labels.icon",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "transit",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#f2f2f2"
-                            },
-                            {
-                                "lightness": 19
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "administrative",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                                "color": "#fefefe"
-                            },
-                            {
-                                "lightness": 20
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "administrative",
-                        "elementType": "geometry.stroke",
-                        "stylers": [{
-                                "color": "#fefefe"
-                            },
-                            {
-                                "lightness": 17
-                            },
-                            {
-                                "weight": 1.2
-                            }
-                        ]
-                    }
-                ]
-            };
+// Load shopping cart
+$('#detail_cart').load("<?php echo base_url();?>cart/load_cart");
 
-            // Get the HTML DOM element that will contain your map 
-            // We are using a div with id="map" seen below in the <body>
-            var mapElement = document.getElementById('google-map');
-
-            // Create the Google Map using our element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
-
-            // Let's also add a marker while we're at it
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(40.740610, -73.935242),
-                map: map,
-                title: 'Greenfarm',
-                icon: "assets/images/icons/map-marker.png",
-                animation: google.maps.Animation.BOUNCE
-            });
-        }
+//Hapus Item Cart
+$(document).on('click','.hapus_cart',function(){
+	var row_id=$(this).attr("id"); //mengambil row_id dari artibut id
+	$.ajax({
+		url : "<?php echo base_url();?>cart/hapus_cart",
+		method : "POST",
+		data : {row_id : row_id},
+		success :function(data){
+			$('#detail_cart').html(data);
+		}
+	});
+});

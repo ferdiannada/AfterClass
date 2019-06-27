@@ -13,7 +13,7 @@
 				<div class="breadcrumb-container">
 					<nav>
 						<ul>
-							<li class="parent-page"><a href="index.html">Home</a></li>
+							<li class="parent-page"><a>Home</a></li>
 							<li>About Us</li>
 						</ul>
 					</nav>

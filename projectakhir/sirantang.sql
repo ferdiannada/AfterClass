@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Jun 2019 pada 08.00
--- Versi server: 10.1.31-MariaDB
--- Versi PHP: 7.2.3
+-- Waktu pembuatan: 18 Bulan Mei 2019 pada 23.38
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `barang` (
   `id` varchar(255) NOT NULL,
   `nama_barang` varchar(128) NOT NULL,
-  `jenis` varchar(128) NOT NULL,
+  `id_jenis` int(11) NOT NULL,
   `gambar` text NOT NULL,
   `deskripsi` text NOT NULL,
   `harga` int(11) NOT NULL
@@ -41,59 +41,22 @@ CREATE TABLE `barang` (
 -- Dumping data untuk tabel `barang`
 --
 
-INSERT INTO `barang` (`id`, `nama_barang`, `jenis`, `gambar`, `deskripsi`, `harga`) VALUES
-('BRG210520190002', 'Tirai Bambu', 'Meja', 'default.jpg', 'Tirai', 5000),
-('BRG250520190003', 'Tirai Bambu', 'Tirai', 'default.jpg', 'Tirai Bambu', 5000),
-('BRG250520190004', 'Tirai Bambu Bergaris', 'Tirai', 'Bamboo-curtains.jpg', 'Tirai Bambu Bergaris', 5000);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `contact`
---
-
-CREATE TABLE `contact` (
-  `id` int(128) NOT NULL,
-  `name` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `subject` varchar(128) NOT NULL,
-  `pesan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `contact`
---
-
-INSERT INTO `contact` (`id`, `name`, `email`, `subject`, `pesan`) VALUES
-(1, 'Aji Pratama', 'ajip2606@gmail.com', 'asas', 'asasas'),
-(2, 'Aji Pratama', 'ajip2606@gmail.com', 'asas', 'asasas'),
-(3, 'Aji Pratama', 'ajip2606@gmail.com', 'asas', 'asasas'),
-(4, 'Aji Pratama', 'ajip2606@gmail.com', 'asas', 'asasas'),
-(5, 'Aji Pratama', 'ajip2606@gmail.com', 'asas', 'asasas'),
-(6, 'Aji Pratama', 'ajip2606@gmail.com', 'asas', 'asasas'),
-(7, 'Aji Pratama', 'ajip2606@gmail.com', 'asas', 'asasas'),
-(8, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(9, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(10, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(11, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(12, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(13, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(14, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(15, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(16, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(17, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(18, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(19, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(20, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(21, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(22, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(23, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(24, 'Aji Pratama', 'mega@gmail.com', 'asa', 'asas'),
-(25, 'Aji Pratama', 'irfangiovani987@gmail.com', 'ff', 'asa'),
-(26, 'n', 'ajip2606@gmail.com', 'ff', 'nn'),
-(27, 'zz', 'arrumzakiyah@gmail.com', 'a', 'aa'),
-(28, 'Aji Pratama', 'e41171807@student.polije.ac.id', 'asas', 'ss'),
-(29, 'aasa', 'ajip2606@gmail.com', 'sas', 'sasa');
+INSERT INTO `barang` (`id`, `nama_barang`, `id_jenis`, `gambar`, `deskripsi`, `harga`) VALUES
+('BR00034', 'Lemari Bajussaa', 2, '', 'sdaadsasdsdasa&quot;', 50000),
+('BR007', 'Kayu Jati Belandas', 2, '', 'Ini kursi yang sangat kuat', 50000),
+('BR009', 'Kayu Jati Belanda', 2, '', 'Ini kursi yang sangat kuatttt', 50000),
+('BR010', 'Kayu Jati Belanda', 2, '', 'Ini kursi yang sangat kuat', 50000),
+('BR012', 'Kayu Jati Belanda', 2, '', 'Ini kursi yang sangat kuat', 50000),
+('BR014', 'Kayu Jati Belanda', 2, '', 'Ini kursi yang sangat kuat', 50000),
+('BR015', 'Kayu Jati Belanda', 2, '', 'Ini kursi yang sangat kuat', 50000),
+('BR666', 'Baru baru', 1, '', 'sadajkshdkjakjskjahdjkak                                                                            ', 50000),
+('BRG180520190067', 'Lemari Baju', 1, '', 'sad                                                                            ', 4000),
+('BRG180520190068', 'Lemari Bajussaa', 1, '', 'sadasdsadsa', 1000),
+('BRG180520190069', 'asd', 2, '', 'jkjhkjh', 400),
+('BRG180520190070', 'Lemari Baju', 2, '', 'nkk', 50000),
+('BRG180520190071', 'Lemari Baju', 1, '', 'xad', 5000),
+('BRG180520190072', 'asdasdasda', 1, '', 'sad', 4444),
+('BRG180520190073', 'gyg', 2, '', 'mnmnmn', 5000);
 
 -- --------------------------------------------------------
 
@@ -111,10 +74,9 @@ CREATE TABLE `jenis` (
 --
 
 INSERT INTO `jenis` (`id`, `jenis`) VALUES
+(1, 'Meja'),
 (2, 'Kursi'),
-(3, 'Tirai'),
-(5, 'Meja'),
-(7, 'Gazebo');
+(3, 'Tirai');
 
 -- --------------------------------------------------------
 
@@ -171,20 +133,13 @@ INSERT INTO `user` (`id`, `nama`, `username`, `email`, `password`, `gambar_profi
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `jenis` (`jenis`);
-
---
--- Indeks untuk tabel `contact`
---
-ALTER TABLE `contact`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `id_jenis` (`id_jenis`);
 
 --
 -- Indeks untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
-  ADD PRIMARY KEY (`jenis`),
-  ADD KEY `id_2` (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `lv_user`
@@ -203,16 +158,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `contact`
---
-ALTER TABLE `contact`
-  MODIFY `id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
 -- AUTO_INCREMENT untuk tabel `jenis`
 --
 ALTER TABLE `jenis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `lv_user`
@@ -234,7 +183,7 @@ ALTER TABLE `user`
 -- Ketidakleluasaan untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`jenis`) REFERENCES `jenis` (`jenis`);
+  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_jenis`) REFERENCES `jenis` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
