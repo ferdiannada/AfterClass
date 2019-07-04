@@ -97,6 +97,95 @@ class M_cust extends CI_Model {
 	    $this->form_validation->set_rules($rule);
 	  }
 
+	  public function rulesEdit()
+	  {
+	    $rule = [
+
+	    			[ // aturan untuk Name
+	                  'field' => 'name',
+	                  'label' => 'Name',
+	                  'rules' => 'required|trim',
+	                  'errors' => ['required' => 'Name field is required']
+	                ],
+
+	    			[ // aturan untuk email
+	                  'field' => 'email',
+	                  'label' => 'Email',
+	                  'rules' => 'required|trim|valid_email|is_unique[customers.email]',
+	                  'errors' => ['is_unique' => 'This email already used',
+	                 			   'required' => 'Email field is required']
+	                ],
+
+	                [ // aturan untuk password
+	                  'field' => 'password1',
+	                  'label' => 'Password',
+	                  'rules' => 'required|trim|min_length[6]|max_length[30]|matches[password2]|alpha_numeric|password_check[1,1,1]',
+	                  'errors' => [
+	                                'matches' => 'Password not matches',
+	                                'min_length' => 'Password is too short',
+	                                'max_length' => 'Password is too long',
+	                 				'required' => 'Password field is required'
+	                              ]
+	                ],
+
+	                [ // aturan konfirmasi password
+	                  'field' => 'password2',
+	                  'label' => 'Password',
+	                  'rules' => 'required|trim|matches[password1]'
+	                ],
+
+	                [ // aturan untuk address
+	                  'field'  => 'address',
+	                  'label'  => 'Address',
+	                  'rules'  => 'required|trim',
+	                  'errors' => ['required' => 'Address field is required']
+	                ],
+
+	                [ // aturan untuk city
+	                  'field'  => 'city',
+	                  'label'  => 'City',
+	                  'rules'  => 'required|trim',
+	                  'errors' => ['required' => 'City field is required']
+	                ],
+
+	                [ // aturan untuk province
+	                  'field'  => 'province',
+	                  'label'  => 'Province',
+	                  'rules'  => 'required|trim',
+	                  'errors' => ['required' => 'State field is required']
+	                ],
+
+	                [ // aturan untuk country
+	                  'field'  => 'country',
+	                  'label'  => 'Country',
+	                  'rules'  => 'required|trim',
+	                  'errors' => ['required' => 'Country field is required']
+	                ],
+
+	                [ // aturan untuk zipcode
+	                  'field'  => 'zipcode',
+	                  'label'  => 'Zipcode',
+	                  'rules'  => 'required|trim|numeric',
+	                  'errors' => [
+									'required' => 'Zip Code field is required',
+									'numeric' => 'Only filled with number'
+								  ]
+	                ],
+
+	                [ // aturan untuk name
+	                  'field'  => 'phonenumber',
+	                  'label'  => 'Phone Number',
+	                  'rules'  => 'required|trim|numeric',
+	                  'errors' => [
+									'required' => 'Phone Number field is required',
+									'numeric' => 'Only filled with number'
+								  ]
+	                ]
+	                
+	            ];
+	    $this->form_validation->set_rules($rule);
+	  }
+
 	  public function processRegister()
 	  {
 	    $data = [
@@ -115,6 +204,32 @@ class M_cust extends CI_Model {
 
 	    $this->db->insert('customers', $data);
 	  }
+
+	  public function editDetails()
+	  {
+		$data = [
+		    'name' => $this->input->post('name', true),
+		  	'address' => $this->input->post('address', true),
+	      'city' => $this->input->post('city', true),
+	      'province' => $this->input->post('province', true),
+	      'country' => $this->input->post('country', true),
+	      'zipcode' => $this->input->post('zipcode', true),
+	      'phonenumber' => $this->input->post('phonenumber', true)
+		];
+
+		$this->db->where('email', $this->session->userdata('email'));
+		$this->db->update('customers', $data);
+	  } 
+
+	  public function editAddress()
+	  {
+		$data = [
+			  'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+		];
+
+		$this->db->where('name', $this->input->post('name'));
+		$this->db->update('customers', $data);
+	  } 
 
 	  public function rulesLogin()
 	  {

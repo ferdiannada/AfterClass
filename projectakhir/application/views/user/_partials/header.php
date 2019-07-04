@@ -7,11 +7,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title><?= $title ?></title>
+	<title>SiRantang - <?= $title ?></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Favicon -->
-	<link rel="icon" href="assets/images/favicon.ico">
+	<link rel="icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 
 	<!-- CSS
 		============================================ -->
@@ -72,21 +72,19 @@
 								<a href="#" id="changeAccount"><span id="accountMenuName">
 									<?php 
 
-									if ($this->session->userdata('email')) {
-										echo "<span style='font-size: 13px; margin-right: 8px;'>$customers[name]</span>" ;
-										echo "<i class='fa fa-angle-down'></i></span></a>";
-										echo "<div class='language-currency-list hidden' id='accountList'>";
-										echo "<ul>";
-										echo "<li><a href='cart'>Cart</a></li>";
-										echo "<li><a href='my-account.html'>My Account</a></li>";
-										echo "<li><a href='account/logout'>Logout</a></li>";
-										echo "</ul>";
-										echo "</div>";
-									}else{
-										echo "<a href='account' >Login/Register</a>";
-									}
-
-									?>
+									if ($this->session->userdata('email')) {?>
+										<span style='font-size: 13px; margin-right: 8px;'><?= $customers['name'] ?></span>
+										<i class='fa fa-angle-down'></i></span></a>
+										<div class='language-currency-list hidden' id='accountList'>
+										<ul>
+										<li><a href='<?= base_url(); ?>cart'>Cart</a></li>
+										<li><a href='<?= base_url(); ?>account/dashboard'>My Account</a></li>
+										<li><a href=' <?= base_url();?>account/logout'>Logout</a></li>
+										</ul>
+										</div>
+									<?php }else{ ?>
+										<a href='<?= base_url(); ?>account'>Login/Register</a>
+									<?php } ?>
 								</div>
 								<!--=======  End of single dropdown  =======-->
 							</div>
