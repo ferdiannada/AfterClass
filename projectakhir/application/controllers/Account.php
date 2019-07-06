@@ -35,6 +35,9 @@ class Account extends CI_Controller
 
 	public function Dashboard()
 	{
+		if (!$this->session->userdata('email')) {
+			return redirect('account');
+		}
 		$data['title'] = 'Dashboard Account';
 		$data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
 		$data['validation_errors'] = $this->session->userdata('validation_errors');
