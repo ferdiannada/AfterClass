@@ -35,29 +35,13 @@ class Account extends CI_Controller
 
 	public function Dashboard()
 	{
-		$data['title'] = 'Manage Account';
+		$data['title'] = 'Dashboard Account';
 		$data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
+		$data['validation_errors'] = $this->session->userdata('validation_errors');
 		$this->load->view('user/_partials/header', $data);
 		$this->load->view('user/_partials/navigation');
 		$this->load->view('user/dashboard', $data);
 		$this->load->view('user/_partials/footer');
-	}
-
-	function editDetails()
-	{
-		$this->mocust->rulesEdit(); //memanggil method rule edit customers
-		$data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
-
-		/*if ($this->form_validation->run() == FALSE ) {
-            redirect('account/dashboard');
-        }else {*/
-
-		$this->mocust->editDetails();
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-			Your account has been successfully edited</div>');
-		redirect('account/dashboard');
-
-		//}
 	}
 
 	public function login()
@@ -107,11 +91,41 @@ class Account extends CI_Controller
 		}
 	}
 
-
 	public function logout()
 	{
 		$this->session->unset_userdata('email');
 		redirect('account');
+	}
+
+	function editDetails()
+	{
+		$this->mocust->editDetails();
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+			Your account has been successfully edited</div>');
+		redirect('account/dashboard');
+	}
+
+	function changePassword()
+	{
+		$this->mocust->rulesChangePassword(); //memanggil method rule
+		$customers = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
+		$password = $this->input->post('oldpassword');
+
+		if (password_verify($password, $customers['password'])) {
+			if ($this->form_validation->run() == false) {
+				$this->session->set_userdata('validation_errors', $this->form_validation->error_array());
+				$this->session->mark_as_flash('validation_errors', $this->form_validation->error_array()); // data will automatically delete themselves after redirect
+				redirect('account/dashboard#edit-password');
+			} else {
+				$this->mocust->changePassword();
+				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+				Your password has been successfully changed</div>');
+				redirect('account/dashboard');
+			}
+		} else {
+			$this->session->set_flashdata('moldpass', ' <small class="text-danger pl-2">Your old password is incorrect</small>');
+			redirect('account/dashboard#edit-password');
+		}
 	}
 }
 

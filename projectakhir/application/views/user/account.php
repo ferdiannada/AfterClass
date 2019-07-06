@@ -1,32 +1,32 @@
     <!--=====  End of header container  ======-->
-    
-	<!--=============================================
+
+    <!--=============================================
 	=            breadcrumb area         =
 	=============================================-->
-	
-	<div class="breadcrumb-area pt-15 pb-15">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<!--=======  breadcrumb container  =======-->
-					
-					<div class="breadcrumb-container">
-						<nav>
-							<ul>
-								<li class="parent-page"><a>Home</a></li>
-								<li>Login - Register</li>
-							</ul>
-						</nav>
-					</div>
-					
-					<!--=======  End of breadcrumb container  =======-->
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!--=====  End of breadcrumb area  ======-->
-	
+
+    <div class="breadcrumb-area pt-15 pb-15">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-12">
+    				<!--=======  breadcrumb container  =======-->
+
+    				<div class="breadcrumb-container">
+    					<nav>
+    						<ul>
+    							<li class="parent-page"><a>Home</a></li>
+    							<li>Login - Register</li>
+    						</ul>
+    					</nav>
+    				</div>
+
+    				<!--=======  End of breadcrumb container  =======-->
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <!--=====  End of breadcrumb area  ======-->
+
     <!--=============================================
     =            Login Register page content         =
     =============================================-->
@@ -51,12 +51,12 @@
     								<input class="mb-0" type="password" name="password" placeholder="Password">
     							</div>
     							<div class="col-md-8">
-    								
+
     								<div class="check-box d-inline-block ml-0 ml-md-2 mt-10">
     									<input type="checkbox" id="remember_me">
     									<label for="remember_me">Remember me</label>
     								</div>
-    								
+
     							</div>
 
     							<div class="col-md-4 mt-10 mb-20 text-left text-md-right">
@@ -105,7 +105,7 @@
     								<input class="mb-0" type="text" name="address" placeholder="Address" value="<?= set_value('address'); ?>">
     								<?= form_error('address', '<small class="text-danger pl-2">', '</small>'); ?>
     							</div>
-    							
+
     							<div class="col-md-12 col-12 mb-20 collapse" id="registerform">
     								<div class="row">
     									<div class="col-md-6 mb-20">
@@ -131,15 +131,15 @@
     										<label>Phone Number</label>
     										<input class="mb-0" type="text" name="phonenumber" placeholder="Phone Number" value="<?= set_value('phonenumber'); ?>">
     										<?= form_error('phonenumber', '<small class="text-danger pl-2">', '</small>'); ?>
-    									</div>    							
+    									</div>
     									<div class="col-md-12 mb-20">
     										<button type="submit" name="register" class="register-button mt-0">Register</button>
     									</div>
     								</div>
-    								<input class="mb-0" type="text" name="date_created" value="<?= date('Y-m-d H:i:s');?>" hidden>
-    								
+    								<input class="mb-0" type="text" name="date_created" value="<?= date('Y-m-d H:i:s'); ?>" hidden>
+
     							</div>
-    									
+
     							<a id="seemore" data-toggle='collapse' href='#registerform' style="margin-left: 15px">See more...</a>
 
     						</div>
@@ -151,4 +151,4 @@
     	</div>
     </div>
 
-	<!--=====  End of Login Register page content  ======-->
+    <!--=====  End of Login Register page content  ======-->

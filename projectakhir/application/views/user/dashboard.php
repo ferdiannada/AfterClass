@@ -1,15 +1,15 @@
     <!--=====  End of header container  ======-->
-    
+
     <!--=============================================
     =            breadcrumb area         =
     =============================================-->
-    
+
     <div class="breadcrumb-area pt-15 pb-15">
-         <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <!--=======  breadcrumb container  =======-->
-                    
+
                     <div class="breadcrumb-container">
                         <nav>
                             <ul>
@@ -18,15 +18,15 @@
                             </ul>
                         </nav>
                     </div>
-                    
+
                     <!--=======  End of breadcrumb container  =======-->
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!--=====  End of breadcrumb area  ======-->
-    
+
     <!--=============================================
     =            My Account page content         =
     =============================================-->
@@ -83,25 +83,25 @@
                                         <div class="myaccount-table table-responsive text-center">
                                             <table class="table table-bordered">
                                                 <thead class="thead-light">
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Name</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                    <th>Total</th>
-                                                    <th>Action</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Name</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                        <th>Total</th>
+                                                        <th>Action</th>
+                                                    </tr>
                                                 </thead>
 
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Mostarizing Oil</td>
-                                                    <td>Aug 22, 2018</td>
-                                                    <td>Pending</td>
-                                                    <td>$45</td>
-                                                    <td><a href="cart.html" class="btn">View</a></td>
-                                                </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Mostarizing Oil</td>
+                                                        <td>Aug 22, 2018</td>
+                                                        <td>Pending</td>
+                                                        <td>$45</td>
+                                                        <td><a href="cart.html" class="btn">View</a></td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -115,7 +115,7 @@
                                         <h3>Account Details</h3>
 
                                         <address>
-                                            <p><strong><?= $customers['name'] ?></strong><br/><strong><?= $customers['email'] ?></strong></p>
+                                            <p><strong><?= $customers['name'] ?></strong><br /><strong><?= $customers['email'] ?></strong></p>
                                             <p><?= $customers['address'] ?><br>
                                                 <?= $customers['city'] ?>, <?= $customers['province'] ?>, <?= $customers['country'] ?>, <?= $customers['zipcode'] ?></p>
                                             <p>Phone Number: <?= $customers['phonenumber'] ?></p>
@@ -185,15 +185,17 @@
                                                 <div class="row">
 
                                                     <div class="col-12 mb-30">
-                                                        <input id="current-pwd" placeholder="Old Password" type="password">
+                                                        <input id="oldpassword" name="oldpassword" placeholder="Old Password" type="password">
+                                                        <?= $this->session->flashdata('moldpass'); ?>
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="new-pwd" placeholder="New Password" type="password">
+                                                        <input id="newpassword1" name="newpassword1" placeholder="New Password" type="password">
+                                                        <small class="text-danger pl-2"><?= $validation_errors['newpassword1']; ?></small>
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 mb-30">
-                                                        <input id="confirm-pwd" placeholder="Confirm Password" type="password">
+                                                        <input id="newpassword2" name="newpassword2" placeholder="Confirm Password" type="password" required>
                                                     </div>
 
                                                     <div class="col-12">

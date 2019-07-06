@@ -103,6 +103,11 @@ class MY_Form_validation extends CI_Form_validation
     {
         return $this->count_occurrences($str, '/[0-9]/');
     }
+
+    public function error_array()
+    {
+        return $this->_error_array;
+    }
 }
 
 /* End of file MY_Form_validation.php */
