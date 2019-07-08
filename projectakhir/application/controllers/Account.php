@@ -25,10 +25,50 @@ class Account extends CI_Controller
 			$this->load->view('user/account');
 			$this->load->view('user/_partials/footer');
 		} else {
-			// jika rule terpenuhi
+			// token
+
 			$this->mocust->processRegister();
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-			Your account has been successfully created</div>');
+			Your account has been successfully created, check your email inbox/spam for account verification!</div>');
+			redirect('account');
+		}
+	}
+
+
+	public function verify()
+	{
+		$email = $this->input->get('email', true);
+		$token = $this->input->get('token', true);
+
+		$customers = $this->db->get_where('customers', ['email' => $email])->row_array();
+
+		if ($this->db->get_where('customers', ['email' => $email])->row_array()) {
+			$customers_token = $this->db->get_where('customers_token', ['token' => $token])->row_array();
+			if ($customers_token) {
+				if (time() - $customers_token['date_created'] < (60 * 5 * 1)) {
+					$this->db->set('status', 1);
+					$this->db->where('email', $email);
+					$this->db->update('customers');
+
+					$this->db->delete('customers_token', ['email' => $email]);
+					$this->session->set_flashdata('messagesuccess', '<div class="alert alert-success" role="alert">
+					' . $email . ' has been activated. Please login.</div>');
+					redirect('account');
+				} else {
+					$this->db->delete('customers', ['email' => $email]);
+					$this->db->delete('customers_token', ['email' => $email]);
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+					Account activation failed! Wrong! Token expired</div>');
+					redirect('account');
+				}
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+				Account activation failed! Wrong! Token invalid	</div>');
+				redirect('account');
+			}
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			Account activation failed! Wrong email</div>');
 			redirect('account');
 		}
 	}
@@ -45,6 +85,89 @@ class Account extends CI_Controller
 		$this->load->view('user/_partials/navigation');
 		$this->load->view('user/dashboard', $data);
 		$this->load->view('user/_partials/footer');
+	}
+
+	public function Forgotpassword()
+	{
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+		if ($this->form_validation->run() == FALSE) {
+			$data['title'] = 'Forgot Password';
+			$this->load->view('user/_partials/header', $data);
+			$this->load->view('user/_partials/navigation');
+			$this->load->view('user/forgotpassword', $data);
+			$this->load->view('user/_partials/footer');
+		} else {
+			$this->mocust->processForgotPassword();
+			redirect('account/forgotpassword');
+		}
+	}
+
+	public function resetPassword() 
+	{
+		$email = $this->input->get('email', true);
+		$token = $this->input->get('token', true);
+
+		$customers = $this->db->get_where('customers', ['email' => $email])->row_array();
+
+		if ($customers) {
+			$customers_token = $this->db->get_where('customers_token', ['token' => $token])->row_array();
+			if ($customers_token) {
+				if (time() - $customers_token['date_created'] < (60 * 60 * 24)) {
+					$this->session->set_userdata('reset_email', $email);
+
+					$this->db->delete('customers_token', ['email' => $email]);
+					$this->session->set_flashdata('messagesuccess', '<div class="alert alert-success" role="alert">
+					' . $email . ' reset password successfully. Please login your account.</div>');
+					redirect('account/rchangepassword');
+				} else {
+					$this->db->delete('customers', ['email' => $email]);
+					$this->db->delete('customers_token', ['email' => $email]);
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+					Reset password failed! Wrong! Token expired</div>');
+					redirect('account');
+				}
+			} else {
+				$this->session->set_flashdata('messageforgot', '<div class="alert alert-danger" role="alert">
+				Reset password failed! Wrong token</div>');
+				redirect('account');
+			}
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			Reset password failed! Wrong email</div>');
+			redirect('account');
+		}
+		
+	}
+
+	public function Rchangepassword()
+	{
+		if (!$this->session->userdata('reset_email')) {
+			return redirect('account');
+		}
+
+		$this->mocust->rulesChangePassword(); //memanggil method rule login customers
+
+		if ($this->form_validation->run() == false) {
+			$data['title'] = 'Reset Password';
+			$this->load->view('user/_partials/header', $data);
+			$this->load->view('user/_partials/navigation');
+			$this->load->view('user/rchangepassword', $data);
+			$this->load->view('user/_partials/footer');
+		} else {
+			// jika rule terpenuhi
+			$password = password_hash($this->input->post('newpassword1'), PASSWORD_DEFAULT);
+			$email = $this->session->userdata('reset_email');
+
+			$this->db->set('password', $password);
+			$this->db->where('email', $email);
+			$this->db->update('customers');
+
+			$this->session->unset_userdata('reset_email');			
+			
+			$this->session->set_flashdata('messagesuccess', '<div class="alert alert-success" role="alert">
+			Your account password has been changed. Please login now.</div>');
+			redirect('account');
+		}
 	}
 
 	public function login()
@@ -81,15 +204,15 @@ class Account extends CI_Controller
 					$this->session->set_userdata($data);
 					redirect('account');
 				} else {
-					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">wrong password!</div>');
+					$this->session->set_flashdata('messagelogin', '<div class="alert alert-danger" role="alert">wrong password!</div>');
 					redirect('account');
 				}
 			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">your email has not been verified</div>');
+				$this->session->set_flashdata('messagelogin', '<div class="alert alert-danger" role="alert">your email has not been verified</div>');
 				redirect('account');
 			}
 		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">your account has not been registered</div>');
+			$this->session->set_flashdata('messagelogin', '<div class="alert alert-danger" role="alert">your account has not been registered</div>');
 			redirect('account');
 		}
 	}

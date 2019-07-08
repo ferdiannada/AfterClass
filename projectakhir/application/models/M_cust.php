@@ -102,9 +102,10 @@ class M_cust extends CI_Model
 
 	public function processRegister()
 	{
+		$email = $this->input->post('email', TRUE);
 		$data = [
 			'name' => $this->input->post('name', true),
-			'email' => $this->input->post('email', TRUE),
+			'email' => $email,
 			'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 			'address' => $this->input->post('address', true),
 			'city' => $this->input->post('city', true),
@@ -116,7 +117,75 @@ class M_cust extends CI_Model
 			'date_created' => $this->input->post('date_created', true)
 		];
 
+		$token = base64_encode(random_bytes(32));
+		$customers_token = [
+			'email' =>	$email,
+			'token' => $token,
+			'date_created' => time()
+		];
+
+		$this->_sendEmail($token, 'verify');
 		$this->db->insert('customers', $data);
+		$this->db->insert('customers_token', $customers_token);
+	}
+
+	public function processForgotPassword()
+	{
+		$email = $this->input->post('email', true);
+		$customers = $this->db->get_where('customers', ['email' => $email])->row_array();
+		if ($customers['status'] == 1) {
+			$token = base64_encode(random_bytes(32));
+			$customers_token = [
+				'email' => $email,
+				'token' => $token,
+				'date_created' => time()
+			];
+
+			$this->db->insert('customers_token', $customers_token);
+			$this->_sendEmail($token, 'forgot');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Please check your inbox/spam email to reset password..</div>');
+			redirect('account/forgotpassword');
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered or activated.</div>');
+			redirect('account/forgotpassword');
+		}
+	}
+
+	private function _sendEmail($token, $type)
+	{
+		$config = [
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_user' => 'bogoliyo1@gmail.com',
+			'smtp_pass' => 'Mz4inurrofanf01',
+			'smtp_port' => 465,
+			'mailtype' => 'html',
+			'charset' => 'utf-8',
+			'newline' => "\r\n",
+		];
+
+		$this->load->library('email', $config);
+		$this->email->initialize($config);
+
+		$this->email->from('bogoliyo1@gmail.com', 'SiRantang');
+		$this->email->to($this->input->post('email', TRUE));
+
+		if ($type == 'verify') {
+			$this->email->subject('SiRantang - Verify Your Account');
+			$this->email->message('Click this link to verify your account : 
+				<a href="'. base_url() .'account/verify?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Activation time for 5 minutes.');
+		} elseif ($type == 'forgot') {
+			$this->email->subject('SiRantang - Reset Your Account Password');
+			$this->email->message('Click this link to reset your account password : 
+				<a href="'. base_url() .'account/resetpassword?email='.$this->input->post('email').'&token='.urlencode($token).'")>Active</a>. Reset password time for 24 hours.');
+		}
+
+		if ($this->email->send()) {
+			return true;
+		} else {
+			echo $this->email->print_debugger();
+			die;
+		}
 	}
 
 	public function rulesChangePassword()
