@@ -88,8 +88,10 @@
 				<!--=======  navigation search bar  =======-->
 
 				<div class="navigation-search d-none d-lg-block">
-					<input type="search" placeholder="Search product ...">
-					<button><i class="icon ion-md-search"></i></button>
+					<form action="<?= base_url('product') ?>" method="post">
+					<input name="keyword" placeholder="Search product by name ..." autocomplete="off" autofocus>
+					<input type="submit" name="tombolCari" hidden>
+					</form>
 				</div>
 
 				<!--=======  End of navigation search bar  =======-->

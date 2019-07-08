@@ -160,14 +160,12 @@
 
   				<!--=======  pagination area  =======-->
 
-  				<div class="pagination-area mb-md-50 mb-sm-50">
-  					<ul>
-  						<li><a class="active" href="#">1</a></li>
-  						<li><a href="#">2</a></li>
-  						<li><a href="#">3</a></li>
-  						<li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-  					</ul>
-  				</div>
+  				<?php
+                  if ($this->uri->segment(2) == "jenis") {
+                  } else {
+                      echo $this->pagination->create_links();
+                  }
+                ?>
 
   				<!--=======  End of pagination area  =======-->
   			</div>
