@@ -11,7 +11,8 @@ class About extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('user/_partials/header');
+		$data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
+		$this->load->view('user/_partials/header', $data);
 		$this->load->view('user/_partials/navigation');
 		$this->load->view('user/about');
 		$this->load->view('user/_partials/footer');

@@ -70,9 +70,9 @@
 
 							<div class="single-dropdown">
 								<a href="#" id="changeAccount"><span id="accountMenuName">
-									<?php 
+									<?php
 
-									if ($this->session->userdata('email')) {?>
+                                    if ($this->session->userdata('email')) {?>
 										<span style='font-size: 13px; margin-right: 8px;'><?= $customers['name'] ?></span>
 										<i class='fa fa-angle-down'></i></span></a>
 										<div class='language-currency-list hidden' id='accountList'>
@@ -82,7 +82,7 @@
 										<li><a href=' <?= base_url();?>account/logout'>Logout</a></li>
 										</ul>
 										</div>
-									<?php }else{ ?>
+									<?php } else { ?>
 										<a href='<?= base_url(); ?>account'>Login/Register</a>
 									<?php } ?>
 								</div>
@@ -127,17 +127,13 @@
 							<!-- cart floating box -->
 							<div class="cart-floating-box hidden" id="cart-floating-box">
 								<div class="cart-items"><?php
-    							if ($cart = $this->cart->contents())
-    							{
-    								?>	
-									<?php
-										// Create form and send all values in "shopping/update_cart" function.
-    									$grand_total = 0;
-    									$i = 1;
+                                if ($cart = $this->cart->contents()) {
+                                    // Create form and send all values in "shopping/update_cart" function.
+                                    $grand_total = 0;
+                                    $i = 1;
 
-    									foreach ($cart as $item):
-    										$grand_total = $grand_total + $item['subtotal'];
-    										?>
+                                    foreach ($cart as $item):
+                                            $grand_total = $grand_total + $item['subtotal']; ?>
 										<div class="cart-float-single-item d-flex">
 											<div class="cart-float-single-item-image">
 												<a><img src="<?= base_url() . 'upload/product/'.$item['gambar']; ?>" class="img-fluid" alt="Product"></a>
@@ -155,14 +151,12 @@
 										<p class="total">Subtotal <span>Rp. <?php echo number_format($grand_total); ?></span></p>
 									</div>
 									<div class="floating-cart-btn text-center">
-										<a class="fl-btn pull-right" href="<?= base_url();?>cart">View Cart</a>
+										<a class="fl-btn pull-right" href="<?= base_url(); ?>cart">View Cart</a>
 									</div><?php
-    						}
-    						else
-    						{
-    							echo "<h5>Your cart is empty</h3>";	
-    						}	
-    						?>
+                                } else {
+                                echo "<h5>Your cart is empty</h3>";
+                            }
+                            ?>
 								</div>
 							</div>
 							<!-- end of cart floating box -->

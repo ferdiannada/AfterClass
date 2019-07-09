@@ -10,7 +10,7 @@ class M_barang extends CI_Model
           $this->db->from('barang'); // data utama di ambil dari tabel barang
           return $this->db->get()->result();
     }
-
+    
     public function limitBarang($limit, $start, $keyword = null) // making pagination query
     {
         $this->db->select('barang.*, jenis.id AS idjenis, jenis.jenis'); // membuat alias untuk id dari tabel jenis
@@ -22,6 +22,12 @@ class M_barang extends CI_Model
         }
         return $this->db->get('barang', $limit, $start)->result();
     }
+
+    public function countBarang()
+    {
+        return $this->db->get('barang')->num_rows();
+    }
+
 
     public function getAllJenis()
     {
@@ -124,16 +130,6 @@ class M_barang extends CI_Model
     {
         $this->db->where('jenis', $jenis);
         return $this->db->get('barang')->result();
-    }
-
-    // untuk cart
-    public function get_produkjenis($jenis)
-    {
-        if ($kategori>0) {
-            $this->db->where('jenis', $jenis);
-        }
-        $query = $this->db->get('barang');
-        return $query->result_array();
     }
 
     public function get_produkid($id)

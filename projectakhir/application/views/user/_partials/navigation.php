@@ -76,9 +76,9 @@
 					<nav>
 						<ul>
 							<li class="<?= active_link('home'); ?> menu-item"><a href="<?= base_url('home'); ?>">HOME</a></li>
-							<li class="<?= active_link('product'); ?> menu-item"><a href="<?= base_url(); ?>product">PRODUCT</a></li>
-							<li class="<?= active_link('contact'); ?> menu-item"><a href="<?= base_url(); ?>contact">CONTACT</a></li>
-							<li class="<?= active_link('about'); ?> menu-item"><a href="<?= base_url(); ?>about">About Us</a></li>
+							<li class="<?= active_link('product'); ?> menu-item"><a href="<?= base_url('product'); $this->session->unset_userdata('keyword')?>">PRODUCT</a></li>
+							<li class="<?= active_link('contact'); ?> menu-item"><a href="<?= base_url('contact'); ?>">CONTACT</a></li>
+							<li class="<?= active_link('about'); ?> menu-item"><a href="<?= base_url('about'); ?>">About Us</a></li>
 						</ul>
 					</nav>
 				</div>

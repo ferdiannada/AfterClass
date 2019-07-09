@@ -272,6 +272,15 @@ class M_cust extends CI_Model
 		$this->db->where('customer_id', $customer_id);
 		$this->db->delete('customers');
 	}
+
+	public function getOrder(){
+		$this->db->select('barang.*, order_details.*, order.*');
+		$this->db->from('order_details');
+		$this->db->join('barang', 'barang.id = order_details.id_barang');
+		$this->db->join('order', 'order.id_order = order_details.id_order');
+		return $this->db->get()->result_array();
+	}
+
 }
 
 /* End of file M_cust.php */

@@ -11,6 +11,7 @@ class Contact extends CI_Controller {
 
 	public function index()
 	{
+		$data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
 		$data['title'] = 'Contact Us';
 		$this->load->view('user/_partials/header', $data);
 		$this->load->view('user/_partials/navigation');

@@ -14,9 +14,6 @@ class Product extends CI_Controller
     {
         $this->load->library('pagination');
 
-        // session user
-        $data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
-        
         // ambil data keyword searching
 
         if ($this->input->post('tombolCari')) {
@@ -40,8 +37,8 @@ class Product extends CI_Controller
         $data['start'] = $this->uri->segment(3);
         
         $data['barang'] = $this->M_barang->limitBarang($config['per_page'], $data['start'], $data['keyword']);
+        $data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
         $data['jenis'] = $this->db->get('jenis')->result_array();
-
         $data['title'] = 'Product';
         $this->load->view('user/_partials/header', $data);
         $this->load->view('user/_partials/navigation');
@@ -64,6 +61,7 @@ class Product extends CI_Controller
 
     public function jenis($jenis)
     {
+        $data['customers'] = $this->db->get_where('customers', ['email' => $this->session->userdata('email')])->row_array();
         $data['barang'] = $this->M_barang->select_jenis($jenis);
         $data['jenis'] = $this->db->get('jenis')->result_array();
         $data['title'] = 'Product';

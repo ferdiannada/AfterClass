@@ -91,7 +91,7 @@
 
   							<!--=======  End of Sort by dropdown  =======-->
 
-  							<p class="result-show-message">Showing 1–12 of 41 results</p>
+  							<p class="result-show-message"><b><?= $total_rows ?> results</b></p>
   						</div>
   					</div>
   				</div>

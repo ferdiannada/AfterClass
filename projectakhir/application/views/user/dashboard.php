@@ -88,20 +88,29 @@
                                                         <th>Name</th>
                                                         <th>Date</th>
                                                         <th>Status</th>
+                                                        <th>QTY</th>
                                                         <th>Total</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
 
                                                 <tbody>
+                                                <?php
+                                                $i =1;
+                                                    foreach($order as $order){
+                                                        
+                                                ?>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Mostarizing Oil</td>
-                                                        <td>Aug 22, 2018</td>
+                                                        <td><?= $i ?></td>
+                                                        <td><?= $order['nama_barang'] ?></td>
+                                                        <td><?= $order['date_ordered'] ?></td>
                                                         <td>Pending</td>
-                                                        <td>$45</td>
+                                                        <td><?= $order['total_purchases'] ?></td>
+                                                        <td><?= "Rp ".number_format($order['total_price']) ?></td>
                                                         <td><a href="cart.html" class="btn">View</a></td>
                                                     </tr>
+                                                    
+                                                    <?php $i++; } ?>
                                                 </tbody>
                                             </table>
                                         </div>

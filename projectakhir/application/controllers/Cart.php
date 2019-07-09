@@ -56,7 +56,7 @@ class Cart extends CI_Controller {
 			$rowid = $cart['rowid'];
 			$price = $cart['price'];
 			$gambar = $cart['gambar'];
-			$amount = $harga * $cart['qty'];
+			$amount = $price * $cart['qty'];
 			$qty = $cart['qty'];
 			$data = array('rowid' => $rowid,
 							'harga' => $price,
